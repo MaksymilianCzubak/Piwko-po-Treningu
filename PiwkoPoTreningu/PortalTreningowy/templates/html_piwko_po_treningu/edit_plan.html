@@ -1,0 +1,11 @@
+{% extends "html_piwko_po_treningu/base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input name="chomik" type="submit" value="Dodaj Notatkę">
+</form>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<html>
+    <head><meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+
+    </script>
+        <style>
+            body{
+                background: url('{% static "Pifko.jpg" filter: grayscale(100%) %}') no-repeat center center;
+                background-size: cover;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+            }
+        </style>
+
+    </head>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.strava.com/" target="_blank">Strava</a>
+      <a class="navbar-brand" href="https://connect.garmin.com/" target="_blank">GARMIN Connect</a>
+      <a class="navbar-brand" href="/">HOME</a>
+      <a class="navbar-brand" href="plans">Plan List</a>
+      <a class="navbar-brand" href="note_list">Training Notes</a>
+      <a id="drop-down" class="btn">Dobre Sklepy Rowerowe
+          <li href="https://www.centrumrowerowe.pl/" target="_blank" class="cr">Centrum Rowerowe</li>
+          <li href="https://www.sbike.pl/" target="_blank" class="sb">Sbkie</li>
+          <li href="https://ctbike.pl/" target="_blank" class="ctb">CT Bike</li>
+      </a>
+    </nav>
+
+
+    <body>
+    <h1><span style="background-color: white">Piwko po treningu.</span></h1>
+            <p><span style="background-color: white">Nawet najgorszy kolarz jest wciąż wybitnym sportowcem. (Marco Pantani)</span></p>
+
+    {% block content %}
+        <script src="static/js/base.js"></script>
+    {% endblock %}
+
+    <footer><span style="background-color: white">
+        {% if request.user.is_authenticated %}
+        Użytkownik {{ request.user.username }}
+        {% else %}
+        Niezalogowany
+        {% endif %}
+    </span></footer>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'html_piwko_po_treningu/base.html' %}
+{% block content %}
+<h2>User:</h2>
+<ul>
+    <a href="mass" class="btn btn-danger">Otwórz Wykres Masy</a>
+    <a href="vo2max_plot" class="btn btn-danger">Otwórz Wykres VO2max</a>
+    <h3></h3>
+    {% for tsnote in tsnotes %}
+    <h3> <span style="background-color: white"> Date: {{tsnote.date}} Weight [kg]: {{tsnote.user_weight}} VO2max: {{tsnote.user_vo2max}} HRmax {{tsnote.hr_max}}</span></h3>
+    {% endfor %}
+</ul>
+{% endblock %}

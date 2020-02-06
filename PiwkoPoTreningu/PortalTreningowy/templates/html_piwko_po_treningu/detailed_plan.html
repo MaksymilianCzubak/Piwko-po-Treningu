@@ -1,0 +1,31 @@
+{% extends 'html_piwko_po_treningu/base.html' %}
+{% block content %}
+<h2>User:</h2>
+<table class="table table">
+
+        <tr>
+            <td></td>
+            <td><font color="blue" ><span style="background-color: white">Poniedziałek</span></font></td>
+            <td><font color="blue" ><span style="background-color: white">Wtorek</span></font></td>
+            <td><font color="red" ><span style="background-color: white">Środa</span></font></td>
+            <td><font color="black" ><span style="background-color: white">Czwartek</span></font></td>
+            <td><font color="yellow" ><span style="background-color: white">Piątek</span></font></td>
+            <td><font color="green" ><span style="background-color: white">Sobota</span></font></td>
+            <td><font color="green" ><span style="background-color: white">Niedziela</span></font></td>
+        </tr>
+        {% for row in ts_table %}
+        <tr >
+            <td width="5%">{{row.0.week}}</td>
+            {% for cell in row %}
+                <td height="200px">
+                    <span style="background-color: white">{{cell.details}}</span> <br>
+
+                    <a href="/plan_edit/{{ cell.id }}" class="btn btn-danger">Opisz Trening</a>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
